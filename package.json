@@ -17,7 +17,16 @@
   },
   "homepage": "https://github.com/akash-011/Library-Service#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "mongoose": "^5.3.1",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
