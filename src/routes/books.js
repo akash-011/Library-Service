@@ -4,7 +4,6 @@ const { validateBook } = require('./book_validator');
 const router = express.Router();
 
 
-
 router.post('/', async (req, res) => {
   const { error } = validateBook(req.body)
   if (error) return res.status(400).send(error.details[0].message);
@@ -19,5 +18,10 @@ router.post('/', async (req, res) => {
   await book.save();
   res.status(201).send(book);
 });
+
+router.get('/', async (req, res) => {
+  const books = await Book.find();
+  res.send(books);
+})
 
 module.exports = router;
