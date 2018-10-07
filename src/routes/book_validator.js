@@ -1,15 +1,23 @@
-const Joi = require('joi');
+const { celebrate, Joi } = require('celebrate');
 
-const validateBook = (book) => {
-  const schema = {
+
+const createBook = celebrate({
+  body: Joi.object().keys({
     name: Joi.string().min(1).required(),
-    author: Joi.string().min(2).required(),
+    author: Joi.string().min(1).required(),
     publishYear: Joi.number().required(),
-    pages: Joi.number().required(),
-  };
-  return Joi.validate(book, schema);
-};
+    pages: Joi.number().integer().required(),
+  }),
+});
+
+const bookUpdate = celebrate({
+  body: Joi.object().keys({
+    publishYear: Joi.number().integer(),
+    pages: Joi.number().integer(),
+  }),
+});
 
 module.exports = {
-  validateBook,
-}
+  createBook,
+  bookUpdate,
+};

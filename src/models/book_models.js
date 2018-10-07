@@ -29,6 +29,10 @@ const bookSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  isAvailable: {
+    type: Boolean,
+    default: true,
+  },
   dateBorrowed: Date,
   returnDate: Date,
 });
